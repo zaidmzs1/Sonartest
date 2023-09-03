@@ -17,7 +17,7 @@ jobs:
           distribution: 'zulu' # Alternative distribution options are available.
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  # Shallow clones should be disabled for better analysis relevance
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
@@ -44,5 +44,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"zaidmzs1_Sonartest" /o:"zaidmzs1" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build TestWebappforSonar.sln
+          msbuild TestWebappforSonar.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
