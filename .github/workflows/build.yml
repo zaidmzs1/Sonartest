@@ -44,5 +44,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"zaidmzs1_Sonartest" /o:"zaidmzs1" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          choco install visualstudio2019buildtools -y
+          RefreshEnv.cmd
           msbuild TestWebappforSonar.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
