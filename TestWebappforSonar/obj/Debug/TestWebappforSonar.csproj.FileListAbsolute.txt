@@ -61,6 +61,8 @@ D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\bin\Micr
 D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\bin\Microsoft.Owin.Security.Twitter.xml
 D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\bin\Microsoft.Owin.Security.OAuth.xml
-D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\obj\Debug\TestWebappforSonar.csprojResolveAssemblyReference.cache
 D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\obj\Debug\TestWebappforSonar.dll
 D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\obj\Debug\TestWebappforSonar.pdb
+D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\obj\Debug\TestWebappforSonar.csproj.AssemblyReference.cache
+D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\obj\Debug\TestWebappforSonar.csproj.CoreCompileInputs.cache
+D:\GIT_Projects\ORMSonarcloudtest\TestWebappforSonar\TestWebappforSonar\obj\Debug\TestWebappforSonar.csproj.CopyComplete
