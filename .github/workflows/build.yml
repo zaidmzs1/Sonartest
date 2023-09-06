@@ -1,41 +1,16 @@
-name: Install MSBuild from Visual Studio 2015
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+steps:
+name: ASP.NET CI
+on: [push]
 jobs:
   build:
-    name: Install MSBuild
     runs-on: windows-latest
+
     steps:
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: 17
-          distribution: 'zulu'
+    - uses: actions/checkout@master
 
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
 
-      - name: Install MSBuild
-        run: |
-          # Download Visual Studio 2015 Build Tools installer
-          Invoke-WebRequest -Uri https://download.microsoft.com/download/9/2/2/9227ABE0-9DD5-447E-B65B-2C146D3CEC01/BuildTools_Full.exe -OutFile BuildTools.exe
-
-          # Install MSBuild from Visual Studio 2015 Build Tools
-          Start-Process -Wait -FilePath .\BuildTools.exe -ArgumentList '--add Microsoft.VisualStudio.Workload.MSBuildTools --quiet --norestart'
-
-          # Cleanup the installer
-          Remove-Item -Path .\BuildTools.exe
-        shell: powershell
-
-      - name: Verify MSBuild installation
-        run: |
-          # Verify MSBuild installation
-          msbuild /version
-        shell: cmd
-
-      # Add your build and analysis steps here
+    - name: MSBuild
+      working-directory: src
+      run: msbuild TestWebappforSonar.sln
