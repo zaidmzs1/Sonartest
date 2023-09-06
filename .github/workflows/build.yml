@@ -35,8 +35,14 @@ jobs:
       - name: Print MSBuild Path
         shell: powershell
         run: |
-          # Print the MSBuild path
-          Get-Command msbuild.exe
+          # Check for the existence of msbuild.exe in the directory
+          $msbuildPath = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\msbuild.exe"
+
+          if (Test-Path $msbuildPath) {
+            Write-Host "MSBuild Path: $msbuildPath"
+          } else {
+            Write-Host "MSBuild not found in the specified directory."
+          }
 
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
