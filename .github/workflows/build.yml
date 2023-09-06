@@ -20,7 +20,7 @@ jobs:
     - name: Debugging
       run: |
         echo "Before MSBuild"
-        msbuild TestWebappforSonar.sln /p:Configuration=Release
+        msbuild https://github.com/zaidmzs1/Sonartest/tree/main/TestWebappforSonar.sln /p:Configuration=Release
         echo "After MSBuild"
 
     # Add more steps for testing or deploying as needed
