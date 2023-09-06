@@ -1,16 +1,26 @@
-steps:
-name: ASP.NET CI
-on: [push]
+ name: ASP.NET CI
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
+    name: Build and Test
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout code
+      uses: actions/checkout@v2
 
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
 
-    - name: MSBuild
+    - name: Restore NuGet Packages
       working-directory: src
-      run: msbuild TestWebappforSonar.sln
+      run: nuget restore TestWebappforSonar.sln
+
+    - name: Build with MSBuild
+      working-directory: src
+      run: msbuild TestWebappforSonar.sln /p:Configuration=Release
+
+    # Add more steps for testing or deploying as needed
