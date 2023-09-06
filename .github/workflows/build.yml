@@ -8,6 +8,10 @@ jobs:
     name: Build and Test
     runs-on: windows-latest
 
+    env:
+      # Load the environment variables from the env.list file
+      PATH: ${{ secrets.PATH_CONTENTS }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -24,3 +28,8 @@ jobs:
       run: msbuild TestWebappforSonar.sln /p:Configuration=Release
 
     # Add more steps for testing or deploying as needed
+
+
+
+
+
