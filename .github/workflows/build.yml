@@ -23,13 +23,10 @@ jobs:
       working-directory: src
       run: nuget restore TestWebappforSonar.sln
 
-    - name: Build with MSBuild
-      working-directory: src
-      run: msbuild TestWebappforSonar.sln /p:Configuration=Release
+    - name: Debugging
+      run: |
+        echo "Before MSBuild"
+        msbuild TestWebappforSonar.sln /p:Configuration=Release
+        echo "After MSBuild"
 
     # Add more steps for testing or deploying as needed
-
-
-
-
-
