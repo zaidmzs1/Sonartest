@@ -65,6 +65,7 @@ jobs:
           # Add MSBuild to the PATH
           $env:PATH = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin" + ";" + $env:PATH
 
-          msbuild TestWebappforSonar.sln
+          # Use Invoke-Expression to run msbuild
+          Invoke-Expression -Command "msbuild TestWebappforSonar.sln"
 
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
