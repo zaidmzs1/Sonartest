@@ -22,11 +22,14 @@ jobs:
 
       - name: Install Chocolatey and MSBuild
         run: |
-          # Install Chocolatey
+          # Update Chocolatey to the latest version
+          choco upgrade chocolatey -y
+
+          # Install Chocolatey with a custom source
           Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-          # Install MSBuild using Chocolatey
-          choco install microsoft-build-tools -y
+          # Install MSBuild using Chocolatey from a different source
+          choco install microsoft-build-tools -y --source=https://chocolatey.org/api/v2/
         shell: powershell
 
       - name: Cache SonarCloud packages
